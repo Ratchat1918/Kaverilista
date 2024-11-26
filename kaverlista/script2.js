@@ -35,11 +35,16 @@ function PoistaKaveri() {
 }
 
 function JarjestaKaverit(){
-    let Kaveri = document.getElementById("Teksti").value;
-    if (Kaveri !== "") { 
-        KaveriLista.push(Kaveri);
+    KaveriLista.sort();
+    const ul = document.getElementById("myUl");
+    while (ul.hasChildNodes()){
+        ul.removeChild(ul.firstChild);
+    }
+    KaveriLista.forEach(addToUl);
+    function addToUl(element){
+        console.log(element);
         var li = document.createElement("li"); 
-        var text = document.createTextNode(Kaveri);
+        var text = document.createTextNode(element);
         li.appendChild(text);
         document.getElementById("myUl").appendChild(li);
     }
